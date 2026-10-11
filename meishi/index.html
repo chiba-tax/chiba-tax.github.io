@@ -2,60 +2,28 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>名刺管理</title>
-<meta name="apple-mobile-web-app-title" content="名刺管理">
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#c8102e">
+<!-- ホーム画面に追加したときの名前とアイコン。アプリとして（Safari のバーなしで）開く -->
+<meta name="apple-mobile-web-app-title" content="名刺管理">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
-<script>
-  // 名刺管理アプリ（GAS の Webアプリ）の URL
-  var APP_URL = 'https://script.google.com/macros/s/AKfycbxF9H6GnzPsHKYrwWp66uhL1rqJ7g6zFUVrHu4g1TYujuAt-MRVmCWYiRgyOucA9p6rrQ/exec';
-
-  // ホーム画面から開いた時（?app=1 付き）は、すぐアプリへ移る
-  if (/[?&]app=1/.test(location.search) && /^https:\/\//.test(APP_URL)) {
-    location.replace(APP_URL);
-  }
-</script>
 <style>
-  body { margin: 0; font: 16px/1.6 system-ui, -apple-system, "Hiragino Sans", sans-serif; color: #231f20; background: #fff; }
-  header { background: linear-gradient(135deg, #c8102e, #a00d25); color: #fff; padding: 28px 20px; text-align: center; }
-  header img { width: 72px; height: 72px; border-radius: 16px; }
-  header h1 { font-size: 18px; margin: 10px 0 0; letter-spacing: .04em; }
-  main { max-width: 480px; margin: 0 auto; padding: 20px 16px 40px; }
-  .open { display: block; text-align: center; background: #c8102e; color: #fff; text-decoration: none; font-weight: 700;
-    padding: 14px; border-radius: 12px; margin-bottom: 24px; }
-  h2 { font-size: 15px; color: #c8102e; border-left: 3px solid #c8102e; padding-left: 8px; }
-  ol { padding-left: 1.4em; }
-  li { margin-bottom: 6px; }
+  html, body { margin: 0; height: 100%; background: #c8102e; }
+  iframe { display: block; width: 100%; height: 100vh; height: 100dvh; border: 0; background: #f7f4f4; }
 </style>
 </head>
 <body>
-<header>
-  <img src="icon-180.png" alt="">
-  <h1>千葉雅代税理士事務所<br>名刺管理</h1>
-</header>
-<main>
-  <a class="open" id="open" href="#">名刺管理を開く</a>
-  <h2>ホーム画面に追加する</h2>
-  <p>このページをホーム画面に追加すると、赤いアイコンから名刺管理をすぐ開けます。</p>
-  <p><b>iPhone（Safari）</b></p>
-  <ol>
-    <li>画面下の共有ボタン（□に↑）を押す</li>
-    <li>「ホーム画面に追加」を押す</li>
-    <li>名前が「名刺管理」になっているのを確認して「追加」</li>
-  </ol>
-  <p><b>Android（Chrome）</b></p>
-  <ol>
-    <li>右上の「︙」を押す</li>
-    <li>「ホーム画面に追加」を押して「追加」</li>
-  </ol>
-</main>
-<script>
-  document.getElementById('open').href = APP_URL;
-  // ホーム画面に追加した時に ?app=1 付きの URL が保存されるよう、ページを開き直さずに URL だけ変える
-  if (!/[?&]app=1/.test(location.search)) history.replaceState(null, '', '?app=1');
-</script>
+<!--
+  中身は、Google Apps Script の名刺管理アプリです。
+  このページは、ホーム画面のアイコンを付けて全画面で開くための入れ物で、データもパスワードも持ちません。
+  名刺管理アプリのURLが変わったときは、下の src を書き換えます。
+-->
+<iframe src="https://script.google.com/macros/s/AKfycbxF9H6GnzPsHKYrwWp66uhL1rqJ7g6zFUVrHu4g1TYujuAt-MRVmCWYiRgyOucA9p6rrQ/exec" title="名刺管理" allow="camera; clipboard-write"></iframe>
 </body>
 </html>
